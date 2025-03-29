@@ -1,0 +1,80 @@
+class Animal {
+  String name;
+  
+  Animal(this.name);  // Constructor to initialize the name
+  
+  void speak() {
+    print("I am an animal named $name");
+  }
+}
+
+class Dog extends Animal {
+  Dog(String name) : super(name);  // Call the Animal constructor with the name
+  
+  @override
+  void speak() {
+    print("I am a dog named $name and I bark!");
+  }
+}
+
+void main() {
+  var dog = Dog("Rex");  // Pass a name to the Dog constructor
+  dog.speak();  // Call the speak method
+}
+
+
+
+// The base class (superclass)
+class Counter {
+  int state;  // This will hold the current state (the counter value)
+
+  // Constructor to initialize the state with a given value (num)
+  Counter(int num) : state = num;  // Use num to initialize state
+
+  // Method to get the current counter value
+  int getState() {
+    return state;
+  }
+
+  // Method to increment the counter by 1
+  void increment() {
+    state++;
+  }
+
+  // Method to decrement the counter by 1
+  void decrement() {
+    state--;
+  }
+}
+
+// The subclass (child class) that extends Counter
+class AdvancedCounter extends Counter {
+  // Constructor that calls the superclass constructor with 0 as the argument
+  AdvancedCounter() : super(5);  // Pass 0 to initialize state with 0
+
+  // Method to reset the counter to 0
+  void reset() {
+    state = 0;
+  }
+
+  // Method to double the current counter value
+  void doubleCounter() {
+    state *= 2;
+  }
+}
+
+void main() {
+  // Create an instance of the AdvancedCounter class
+  var advancedCounter = AdvancedCounter();
+
+  print(advancedCounter.getState());  // Outputs: 0 (Initial state)
+
+  advancedCounter.increment();  // Increments the counter
+  print(advancedCounter.getState());  // Outputs: 1
+
+  advancedCounter.doubleCounter();  // Doubles the counter value
+  print(advancedCounter.getState());  // Outputs: 2
+
+  advancedCounter.reset();  // Resets the counter
+  print(advancedCounter.getState());  // Outputs: 0
+}
