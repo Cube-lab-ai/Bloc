@@ -134,35 +134,174 @@
 //   }
 // }
 
-import 'package:flutter/material.dart';
+// 2 -----------------------------------------------------------------------------
+
+// import 'package:flutter/material.dart';
+// import 'package:weatherapp_pre_req/model/weathermodel.dart';
+
+// void main() {
+//   runApp(MyApp());
+//   Weathermodel weathermodel1 = Weathermodel(
+//     humidity: 23,
+//     temp: 23.4,
+//     weather: 134.5,
+//   );
+
+//   Weathermodel weather2 = weathermodel1.copyWith(humidity: 233);
+//   print(weather2);
+//   print(weather2.toMap());
+// }
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(home: Scaffold(body: Text('data')));
+//   }
+// }
+
+// 3----------------------------------------------------------------------------
+
+// import 'package:flutter/material.dart';
+// import 'package:weatherapp_pre_req/model/weathermodel.dart';
+
+// void main() {
+//   runApp(MyApp());
+//   Person student = Person.createPerson('Student', 'Alice', 20);
+//   student.describe();
+
+//   // Creating a Teacher object using the factory constructor
+//   Person teacher = Person.createPerson('Teacher', 'Mr. Smith', 35);
+//   teacher.describe();
+// }
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(home: Scaffold(body: Text('data')));
+//   }
+// }
+
+// 4 factory constructor -------------------------------------------------------
+
+// import 'package:flutter/material.dart';
+// import 'package:weatherapp_pre_req/model/weathermodel.dart';
+
+// void main() {
+//   runApp(MyApp());
+//   Persion persion = Persion.createPersion('Student', 'bala', 33);
+//   persion.describe();
+//   Persion teacher = Persion.createPersion('Teacher', 'kavitha', 12);
+//   teacher.describe();
+// }
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(home: Scaffold(body: Text('data')));
+//   }
+// }
+
+// 5 weather model to json string ---------------------------------------------
+
+// import 'package:weatherapp_pre_req/model/weathermodel.dart';
+
+// void main() {
+//   // Create an instance of WeatherModel with some sample data
+//   WeatherModel weather = WeatherModel(
+//     currentTemp: 25.5,
+//     currentSky: "Clear",
+//     currentPressure: 1012.0,
+//     currentWindSpeed: 5.5,
+//     currentHumidity: 70.0,
+//   );
+
+//   String jsonWeather = weather.toJson();
+
+//   // Print the JSON string
+//   print("Weather Data as JSON: $jsonWeather");
+// }
+
+// Covariant ------------------------------------------------
+
+// What does this code do?
+
+//     operator ==:
+
+//         This is the equality operator that is used when comparing two objects of the Point class (or its subclasses).
+
+//         Dart allows you to override the == operator in a class, enabling custom behavior when comparing objects of that class.
+
+//     covariant Point other:
+
+//         covariant allows the other parameter to accept not only Point objects, but also any subtype of Point.
+
+//         This makes the operator more flexible, allowing comparisons between objects of the base class Point and any subclass, such as ColoredPoint, if they exist.
+
+//     this.x == other.x && this.y == other.y:
+
+//         The this refers to the current instance of the Point object (the object calling this method).
+
+//         other is the parameter, which represents the other Point object you want to compare with.
+
+//         The comparison happens based on the x and y values of the Point objects. These are the content of the Point object. If both x and y are the same in both objects, they are considered equal.
+
+//         In other words, the equality operator compares the two Point objects by checking if:
+
+//             The x coordinate of the first Point is equal to the x coordinate of the second Point.
+
+//             The y coordinate of the first Point is equal to the y coordinate of the second Point.
+
+//     return this.x == other.x && this.y == other.y;:
+
+//         If both conditions are true (i.e., both the x and y values are equal), the operator returns true, meaning the two Point objects are equal.
+
+//         If either x or y is not equal, the operator returns false, meaning the two Point objects are not equal.
+
+// 1. this:
+
+//     this refers to the current instance of the class on which the method is being called.
+
+//     In the case of an object comparison, this represents the object that is calling the operator or method.
+
+// For example, if you have a Point object p1 and you call p1 == p2, this refers to the p1 object within the operator == method.
+// 2. other:
+
+//     other is a parameter in the method or operator, and in this case, it's used to refer to the other object you're comparing to.
+
+//     In the operator == method, the other object is the object that the current object (this) is being compared with.
+
+// In the case of p1 == p2, p1 is this (the object calling the method), and p2 is other (the object you're comparing p1 with).
+import 'dart:math';
 import 'package:weatherapp_pre_req/model/weathermodel.dart';
 
 void main() {
-  runApp(MyApp());
-  // Weathermodel weather1 = Weathermodel(
-  //   temp: '34',
-  //   humidity: '232',
-  //   israny: 'rany',
-  // );
-  // print(weather1);
+  var p1 = Point(1, 2);
+  var p2 = Point(1, 2);
+  var p3 = ColoredPoint(1, 2, "red");
 
-  // weather1.copywith(temp: '32');
-  Weathermodel weather1 = Weathermodel(
-    Weather: 'Weather',
-    humidity: 'Humidity',
-  );
-
-  print(weather1);
-
-  Weathermodel weather2 = weather1.copywith(Weather: 'weathr');
-  print(weather2.tomap());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body: Text('data')));
-  }
+  print(p1 == p2); // true, because their x and y are equal
+  print(
+    p1 == p3,
+  ); // true, because ColoredPoint(1, 2, "red") is a subtype of Point
 }
